@@ -16,7 +16,7 @@ function HomePage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const result = await axios.post("http://localhost:5000/postBlog", formData);
+      const result = await axios.post("https://myblogwebsite-r5eq.onrender.com/postBlog", formData);
       console.log(result);
       // if (result.status === 200) {
       //   // or whatever status indicates success
