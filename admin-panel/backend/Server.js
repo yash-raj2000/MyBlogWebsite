@@ -34,6 +34,17 @@ app.get("/", (req, res) => {
   res.send("Server Running - Admin Panel Backend");
 });
 
+app.get("/getBlogs", async (req, res) => {
+  try {
+    const result = await blogModel.find().sort({ date: -1 });
+    console.log(result);
+    res.json(result);
+  } catch (error) {
+    console.error("Error Fetching Blogs:", error.message);
+    res.status(500).json({ error: "An error occurred while fetching blogs." });
+  }
+});
+
 app.post("/postBlog", async (req, res) => {
   try {
     const data = await blogModel.create(req.body);

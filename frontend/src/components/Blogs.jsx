@@ -9,21 +9,15 @@ function Blogs() {
 
   const getBlogs = async () => {
     try {
-      const response = await fetch(
-        "https://yashraj-blogs.onrender.com/getBlogs"
-      );
+      const response = await fetch("http://localhost:3001/getBlogs");
       const jsonData = await response.json();
-      const blogsData = jsonData.rows; // Extract blog data from the "rows" property
-
       // Sort blogs by date in descending order
-      blogsData.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-      setBlogs(blogsData);
+      // jsonData.sort((a, b) => new Date(b.date) - new Date(a.date));
+      setBlogs(jsonData);
     } catch (error) {
       console.error(error.message);
     }
   };
-
   useEffect(() => {
     getBlogs();
   }, []);
@@ -35,7 +29,7 @@ function Blogs() {
         <Home />
         <div className="blogs-container">
           {blogs.map((blogItem) => (
-            <div className="blog" key={blogItem.id} id={blogItem.id}>
+            <div className="blog" key={blogItem._id} id={blogItem._id}>
               <p className="date">
                 {new Date(blogItem.date).toLocaleDateString("en-US", {
                   year: "numeric",
@@ -50,7 +44,7 @@ function Blogs() {
               <p className="blog-content" style={{ whiteSpace: "pre-wrap" }}>
                 {blogItem.content.slice(0, 200)}...{" "}
               </p>
-              <Link to={`/getBlogs/${blogItem.id}`} className="blog-btn">
+              <Link to={`/getBlogs/${blogItem._id}`} className="blog-btn">
                 Read More...
               </Link>
               <hr
