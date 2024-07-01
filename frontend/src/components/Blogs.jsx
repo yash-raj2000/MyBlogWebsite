@@ -12,7 +12,7 @@ function Blogs() {
       const response = await fetch("http://localhost:3001/getBlogs");
       const jsonData = await response.json();
       // Sort blogs by date in descending order
-      // jsonData.sort((a, b) => new Date(b.date) - new Date(a.date));
+      jsonData.sort((a, b) => new Date(b.date) - new Date(a.date));
       setBlogs(jsonData);
     } catch (error) {
       console.error(error.message);
