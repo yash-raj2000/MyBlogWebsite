@@ -10,7 +10,7 @@ function OpenBlog() {
     const fetchBlog = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3001/getBlogs/${id}`
+          `https://myblogwebsite-backend.onrender.com/getBlogs/${id}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch blog");

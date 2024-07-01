@@ -9,7 +9,7 @@ function Blogs() {
 
   const getBlogs = async () => {
     try {
-      const response = await fetch("http://localhost:3001/getBlogs");
+      const response = await fetch("https://myblogwebsite-backend.onrender.com/getBlogs");
       const jsonData = await response.json();
       // Sort blogs by date in descending order
       jsonData.sort((a, b) => new Date(b.date) - new Date(a.date));
