@@ -1,6 +1,6 @@
 # MyBlogWebsite
 
-![Website Screenshot](https://drive.google.com/file/d/1Kab8YE7CA-eKobr1DBZc1W1AUYyO1n--/view?usp=sharing)
+![Website Screenshot](https://drive.google.com/file/d/1Kab8YE7CA-eKobr1DBZc1W1AUYyO1n--/view?usp=drive_link)
 
 ## Overview
 
