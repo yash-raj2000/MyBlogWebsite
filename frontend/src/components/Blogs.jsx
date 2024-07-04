@@ -6,8 +6,10 @@ import Footer from "./Footer";
 
 function Blogs() {
   const [blogs, setBlogs] = useState([]);
+   const [loading, setLoading] = useState(false);
 
   const getBlogs = async () => {
+        setLoading(true);
     try {
       const response = await fetch("https://myblogwebsite-backend.onrender.com/getBlogs");
       const jsonData = await response.json();
@@ -16,6 +18,8 @@ function Blogs() {
       setBlogs(jsonData);
     } catch (error) {
       console.error(error.message);
+    }finally {
+      setLoading(false);
     }
   };
   useEffect(() => {
@@ -28,6 +32,7 @@ function Blogs() {
         <Navbar />
         <Home />
         <div className="blogs-container">
+          {loading && <div className="loading-popup">I am using render's free instance for my backend so it may take around 40-50 secs to load the blogs ...</div>}
           {blogs.map((blogItem) => (
             <div className="blog" key={blogItem._id} id={blogItem._id}>
               <p className="date">
